@@ -10,14 +10,10 @@ const Footer: React.FC = () => {
     setActiveModal(serviceTitle);
   };
 
-  const currentService = EXTRA_SERVICES.find(s => s.title === activeModal);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Procura o serviço ativo tanto na lista de extras quanto na lista de níveis principais
+  // Usamos 'any' aqui para facilitar a união dos tipos ServiceLevel e ExtraService que ambos possuem title e description
+  const allServices = [...SERVICE_LEVELS, ...EXTRA_SERVICES];
+  const currentService = allServices.find(s => s.title === activeModal);
 
   return (
     <footer className="bg-dark-950 border-t border-white/10 pt-16 pb-8">
@@ -46,7 +42,7 @@ const Footer: React.FC = () => {
                 {SERVICE_LEVELS.map((level) => (
                   <li key={level.id}>
                     <button 
-                      onClick={() => scrollToSection('services')}
+                      onClick={() => openServiceModal(level.title)}
                       className="hover:text-white transition-colors text-left"
                     >
                       {level.title}
@@ -149,6 +145,12 @@ const Footer: React.FC = () => {
         title={currentService?.title || ''}
         type="default"
       >
+         {/* Adicionamos o identificador de nível se existir no objeto (para os serviços principais) */}
+         {'level' in (currentService || {}) && (
+           <span className="block text-brand-500 font-bold text-sm mb-2 uppercase tracking-wider">
+             {(currentService as any).level}
+           </span>
+         )}
          <p className="text-lg leading-relaxed">{currentService?.description}</p>
          <div className="mt-8 bg-brand-900/20 p-4 rounded-lg border border-brand-500/20">
            <p className="text-brand-300 text-sm font-semibold">Interessado neste serviço?</p>

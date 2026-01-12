@@ -51,10 +51,10 @@ const Hero: React.FC = () => {
              { label: "Para Estratégia", value: "Mais Tempo" },
              { label: "Redução de Erros", value: "Automação" },
              { label: "Para seu Negócio", value: "Escalabilidade" },
-             { label: "Tecnologia", value: "Gemini / GPT-4" },
+             { label: "Raciocínio Avançado", value: "Agentes Autônomos" },
            ].map((stat, idx) => (
              <div key={idx}>
-               <div className="text-2xl md:text-3xl font-display font-bold text-white mb-1">{stat.value}</div>
+               <div className="text-2xl md:text-3xl font-display font-bold text-white mb-1 leading-tight">{stat.value}</div>
                <div className="text-xs text-gray-500 uppercase tracking-wide">{stat.label}</div>
              </div>
            ))}
