@@ -1,13 +1,14 @@
 import React from 'react';
 import Button from './Button';
 import { ChevronRight } from 'lucide-react';
+import StatusBadge from './StatusBadge';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-20">
       
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-dark-900">
+      {/* Background Elements - Moved overflow-hidden here to allow Badge to escape if needed, though Badge uses fixed positioning now */}
+      <div className="absolute inset-0 bg-dark-900 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl">
            <div className="absolute top-[20%] left-[20%] w-72 h-72 bg-brand-500/10 rounded-full blur-[100px] animate-pulse"></div>
            <div className="absolute bottom-[20%] right-[20%] w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
@@ -19,13 +20,8 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-brand-300 text-sm mb-8 hover:bg-white/10 transition-colors cursor-default">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-          </span>
-          Aceitando Projetos Nível 1 e 2
-        </div>
+        {/* New Dynamic Badge */}
+        <StatusBadge />
 
         <h1 className="text-5xl md:text-7xl font-display font-bold text-white tracking-tight mb-8">
           A Evolução da sua Empresa <br/>

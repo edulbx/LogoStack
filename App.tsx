@@ -77,23 +77,54 @@ const App: React.FC = () => {
              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                <div>
                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
-                   O "Básico Bem Feito" <br/> supera a complexidade mal gerida.
+                   A Inteligência de Elite <br/> não precisa custar uma fortuna.
                  </h2>
                  <p className="text-gray-400 mb-6 leading-relaxed">
-                   Muitas empresas tentam pular direto para o Machine Learning sem ter seus dados organizados. Nossa metodologia garante que sua base (Nível 1) esteja sólida antes de automatizar decisões (Nível 2) ou criar modelos próprios (Nível 3).
+                   Nossa metodologia permite que você entre no jogo hoje com o que tem, e evolua conforme o seu lucro cresce.
                  </p>
-                 <ul className="space-y-4">
-                   {[
-                     "Auditoria completa de dados antes de qualquer código.",
-                     "Segurança e privacidade como pilares centrais.",
-                     "Transferência de conhecimento: sua equipe aprende a usar.",
-                   ].map((item, idx) => (
-                     <li key={idx} className="flex items-center text-gray-300">
-                       <span className="w-1.5 h-1.5 bg-brand-500 rounded-full mr-3"></span>
-                       {item}
-                     </li>
-                   ))}
+                 <ul className="space-y-6">
+                   <li className="flex items-start text-gray-300">
+                     <span className="w-1.5 h-1.5 bg-brand-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                     <div>
+                       <strong className="text-white block mb-1">Nível 1: O Alicerce</strong>
+                       Organizamos o "cérebro" da sua operação. É o ponto de partida obrigatório para parar de bater cabeça com ferramentas genéricas. Comece pequeno, pense grande.
+                     </div>
+                   </li>
+                   <li className="flex items-start text-gray-300">
+                     <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                     <div>
+                       <strong className="text-white block mb-1">Nível 2: O Fluxo Inteligente</strong>
+                       O próximo passo lógico. Aqui, a IA se paga sozinha ao eliminar gargalos humanos com automações que decidem e executam 24/7.
+                     </div>
+                   </li>
+                   <li className="flex items-start text-gray-300">
+                     <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                     <div>
+                       <strong className="text-white block mb-1">Nível 3: Domínio Total</strong>
+                       Onde os grandes se separam dos amadores. RAG e Machine Learning proprietários. Você investe em um ativo que é seu, inalienável e protegido.
+                     </div>
+                   </li>
                  </ul>
+
+                 {/* Frases adicionais com ícone "Online" */}
+                 <div className="mt-8 pt-8 border-t border-white/5">
+                   <ul className="space-y-4">
+                     {[
+                       "Auditoria completa de dados antes de qualquer código.",
+                       "Segurança e privacidade como pilares centrais.",
+                       "Transferência de conhecimento: sua equipe aprende a usar.",
+                     ].map((item, idx) => (
+                       <li key={idx} className="flex items-center text-gray-300 text-sm font-medium">
+                         <span className="relative flex h-2.5 w-2.5 mr-3 flex-shrink-0">
+                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                         </span>
+                         {item}
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
+
                </div>
                
                {/* Gráfico de Barras Sólidas */}
