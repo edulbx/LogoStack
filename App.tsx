@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import ServiceCard from './components/ServiceCard';
 import ChatWidget from './components/ChatWidget';
 import Footer from './components/Footer';
-import Testimonials from './components/Testimonials';
+// import Testimonials from './components/Testimonials';
 import WhatsAppButton from './components/WhatsAppButton';
 import ContactForm from './components/ContactForm';
 import { SERVICE_LEVELS } from './constants';
@@ -69,7 +69,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Testimonials */}
-        <Testimonials />
+        {/* <Testimonials /> */}
 
         {/* Methodology / Why Us */}
         <section id="methodology" className="py-24 bg-dark-800/50 border-y border-white/5">
