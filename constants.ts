@@ -1,4 +1,4 @@
-import { ServiceLevel, Testimonial, ExtraService } from './types';
+import { ServiceLevel, WorkStep, ExtraService } from './types';
 
 export const SERVICE_LEVELS: ServiceLevel[] = [
   {
@@ -102,33 +102,22 @@ export const EXTRA_SERVICES: ExtraService[] = [
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+// Enquanto não houver cases reais publicáveis, mostramos o processo em vez de depoimentos.
+export const WORK_STEPS: WorkStep[] = [
   {
     id: 1,
-    name: "Ricardo Silva",
-    role: "CEO",
-    company: "Logística Express",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100",
-    logo: "https://cdn-icons-png.flaticon.com/512/1698/1698844.png",
-    text: "A automação de triagem de leads trouxe uma agilidade incrível. Hoje focamos apenas nos clientes com real potencial, sem perder tempo com qualificações manuais."
+    title: "Diagnóstico gratuito de 30 min",
+    description: "Conversa inicial para entender a operação, mapear gargalos e avaliar se a IA resolve o seu problema — sem compromisso."
   },
   {
     id: 2,
-    name: "Mariana Costa",
-    role: "Diretora de Operações",
-    company: "TechSolutions",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100",
-    logo: "https://cdn-icons-png.flaticon.com/512/5969/5969032.png",
-    text: "Estávamos perdidos com tantos dados desorganizados. O trabalho de 'alicerce' foi fundamental para estruturarmos nossa base antes de aplicar IA."
+    title: "Proposta com prazo e escopo fechados",
+    description: "Você recebe por escrito o que será entregue, em quanto tempo e por qual valor. Sem surpresa de custo no meio do caminho."
   },
   {
     id: 3,
-    name: "Carlos Eduardo",
-    role: "Fundador",
-    company: "Advocacia Digital",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100",
-    logo: "https://cdn-icons-png.flaticon.com/512/2704/2704024.png",
-    text: "Conseguimos transformar nossa base jurídica em um ativo pesquisável. Consultas que levavam horas agora são feitas em segundos."
+    title: "Entrega com transferência de conhecimento",
+    description: "Além da solução funcionando, sua equipe é treinada para operar e evoluir o que foi construído sem depender de nós."
   }
 ];
 

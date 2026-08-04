@@ -29,12 +29,8 @@ export interface ChatMessage {
   timestamp: Date;
 }
 
-export interface Testimonial {
+export interface WorkStep {
   id: number;
-  name: string;
-  role: string;
-  company: string;
-  image: string;
-  logo: string;
-  text: string;
+  title: string;
+  description: string;
 }

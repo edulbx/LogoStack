@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from './components/Hero';
 import ServiceCard from './components/ServiceCard';
 import ChatWidget from './components/ChatWidget';
 import Footer from './components/Footer';
-// import Testimonials from './components/Testimonials';
+import HowWeWork from './components/HowWeWork';
 import WhatsAppButton from './components/WhatsAppButton';
 import ContactForm from './components/ContactForm';
+import Button from './components/Button';
 import { SERVICE_LEVELS } from './constants';
-import { BrainCircuit } from 'lucide-react';
+import { BrainCircuit, Menu, X } from 'lucide-react';
+
+const NAV_LINKS = [
+  { id: 'services', label: 'Soluções' },
+  { id: 'methodology', label: 'Metodologia' },
+  { id: 'contact', label: 'Contato' },
+];
 
 const App: React.FC = () => {
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -29,11 +38,51 @@ const App: React.FC = () => {
             <span className="tracking-tight">LogoStack</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <button onClick={() => scrollToSection('services')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Soluções</button>
-            <button onClick={() => scrollToSection('methodology')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Metodologia</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Contato</button>
+            {NAV_LINKS.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none"
+              >
+                {link.label}
+              </button>
+            ))}
           </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="md:hidden text-gray-200 hover:text-brand-400 transition-colors p-2 -mr-2"
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile menu panel */}
+        {isMenuOpen && (
+          <div id="mobile-menu" className="md:hidden border-t border-white/5 bg-dark-900/95 backdrop-blur-md">
+            <div className="container mx-auto px-6 py-2">
+              {NAV_LINKS.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="w-full text-left py-4 text-lg font-medium text-gray-100 border-b border-white/5 hover:text-brand-400 transition-colors bg-transparent"
+                >
+                  {link.label}
+                </button>
+              ))}
+              <Button
+                className="w-full my-6"
+                onClick={() => scrollToSection('contact')}
+              >
+                Falar com Especialista
+              </Button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <main>
@@ -68,8 +117,8 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        {/* <Testimonials /> */}
+        {/* Prova social: processo de trabalho (substitui depoimentos até haver cases reais) */}
+        <HowWeWork />
 
         {/* Methodology / Why Us */}
         <section id="methodology" className="py-24 bg-dark-800/50 border-y border-white/5">
